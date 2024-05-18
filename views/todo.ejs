@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+    <body>
+        <center>
+        <h1>Todos</h1>
+        <form action="/memo" method="POST">
+        <input type="text" id="todo" name="todo" required>
+        <button type="submit">Add</button>
+    </form>
+    <br>
+    <br>
+
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>content</th>
+            <th>create_date</th>
+            <th>complete</th>
+        </tr>
+        <% for(let i = 0; i < todos.length; i++) { %>
+        <tr>
+            <td><%= todos[i]["id"] %></td>
+            <td><%= todos[i]["content"] %></td>
+            <td><%= todos[i]["create_date"] %></td>
+            <td>
+                <input type="checkbox" class="todo-checkbox" data-id="<%= todos[i]["id"] %>"
+                    <% if (todos[i]["complete"] === "完成") { %> checked <% } %>>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+    
+    <script>
+        $(document).ready(function () {
+            $('.todo-checkbox').change(function () {
+                const todoId = $(this).data('id');
+                const isChecked = $(this).is(':checked');
+                console.log(isChecked);
+                // 向後端發送更新請求
+                $.ajax({
+                    url: '/updateTodoStatus',
+                    method: 'POST',
+                    data: {
+                        todoId: todoId,
+                        isChecked: isChecked
+                    },
+                    success: function (response) {
+                        console.log(response);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            });
+        });
+    </script>
+    </center>
+    </body>
+    
+    </html>

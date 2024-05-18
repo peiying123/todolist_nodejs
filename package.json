@@ -1,0 +1,34 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "ansi-styles": "^4.3.0",
+    "async": "^3.2.5",
+    "balanced-match": "^1.0.2",
+    "brace-expansion": "^1.1.11",
+    "chalk": "^4.1.2",
+    "color-convert": "^2.0.1",
+    "color-name": "^1.1.4",
+    "concat-map": "^0.0.1",
+    "filelist": "^1.0.4",
+    "has-flag": "^4.0.0",
+    "jake": "^10.9.1",
+    "minimatch": "^3.1.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.7",
+    "supports-color": "^7.2.0"
+  },
+  "devDependencies": {
+    "ejs": "^3.1.10",
+    "ejs-locals": "^1.0.2",
+    "express": "^4.19.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
