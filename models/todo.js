@@ -35,7 +35,17 @@ const todoModel = {
       if (err) return cb(err);
       cb(null, results);
     });
-  }
+  },
+  delete: (deleteTodo, cb) => {
+    
+    console.log(deleteTodo.todoId)
+    //console.log(updatestatus.isChecked)
+    //console.log(completedstatus)
+    db.query('DELETE FROM todos_table WHERE id = ?', [deleteTodo.todoId], (err, results) => {
+      if (err) return cb(err);
+      cb(null, results);
+    });
+  },
 };
 
 module.exports = todoModel;

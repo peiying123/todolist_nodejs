@@ -23,12 +23,26 @@ const todoController = {
     todoModel.add(todo, (err, results) => {
       if (err) return console.log(err);
     });
+    todoModel.getAll((err, results) => {
+      if (err) return console.log(err);
+      res.render('todo', {
+        todos: results
+      });
+    });
   },
   update: (req, res) => {
     const updatestatus = req.body;
     todoModel.update(updatestatus, (err, results) => {
       if (err) return console.log(err);
     });
+  },
+  delete: (req, res) => {
+    const deleteTodo = req.body;
+    todoModel.delete(deleteTodo, (err, results) => {
+      if (err) return console.log(err);
+      res.sendStatus(200);
+    });
+    
   }
 };
 

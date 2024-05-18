@@ -14,7 +14,8 @@ app.get('/', todoController.getAll);
 app.get('/todo/:id', todoController.get);
 app.post('/memo', todoController.add);
 app.post('/updateTodoStatus', todoController.update);
-
+app.post('/deleteTodo', todoController.delete);
+///deleteTodo
 app.listen(port, () => {
   db.connect();
   console.log(`Example app listening at http://localhost:${port}`);
